@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<string name="app_name">GetComments</string>
+	<string name="hello_world">Hello world!</string>
+	<string name="show_comment_form">Show Comment  Form</string>
+	<string name="name">Name</string>
+	<string name="comment">Comment</string>
+	<string name="email">Email</string>
+	<string name="submit_comment">Submit Comment</string>
+
+</resources>
