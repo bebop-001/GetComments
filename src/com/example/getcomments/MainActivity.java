@@ -7,7 +7,7 @@ import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends BaseActivity {
 	private static final String tag = "MainActivity";
 
 	@Override

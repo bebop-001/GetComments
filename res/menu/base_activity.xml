@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.getcomments.BaseActivity" >
+	
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never"/>
+    <!-- showAsAction=always means always show icons in
+         the action bar. -->
+    <item android:id="@+id/facebook"
+    	android:title="@string/facebook"
+    	android:orderInCategory="1"
+    	android:showAsAction="always"
+    />
+    <item android:id="@+id/twitter"
+    	android:title="@string/twitter"
+    	android:icon="@drawable/twitter_icon"
+    	android:orderInCategory="2"
+    	android:showAsAction="always" >
+    	<menu android:title="@string/twitter_4">
+    		<item android:id="@+id/twitter_1"
+    			android:title="@string/twitter_1" />
+    		<item android:id="@+id/twitter_2"
+    			android:title="@string/twitter_2" />
+    		<item android:id="@+id/twitter_3"
+    			android:title="@string/twitter_3" />
+    		<item android:id="@+id/twitter_4"
+    			android:title="@string/twitter_4" >
+                <menu android:title="@string/twitter_4">
+                    <item android:id="@+id/twitter_4_1"
+                        android:title="@string/twitter_4_1" />
+                    <item android:id="@+id/twitter_4_2"
+                        android:title="@string/twitter_4_2" />
+                    <item android:id="@+id/twitter_4_3"
+                        android:title="@string/twitter_4_3" />
+                    <item android:id="@+id/twitter_4_4"
+                        android:title="@string/twitter_4_4" />
+                </menu>
+            </item>
+    	</menu>
+    </item>
+    <item android:id="@+id/refresh"
+    	android:title="@string/refresh"
+    	android:orderInCategory="3"
+    	android:showAsAction="always"
+    />
+		
+
+</menu>

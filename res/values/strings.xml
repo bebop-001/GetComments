@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-	<string name="app_name">GetComments</string>
-	<string name="hello_world">Hello world!</string>
-	<string name="show_comment_form">Show Comment  Form</string>
-	<string name="name">Name</string>
-	<string name="comment">Comment</string>
-	<string name="email">Email</string>
-	<string name="submit_comment">Submit Comment</string>
+    <string name="action_settings">Settings</string>
+    <string name="app_name">GetComments</string>
+    <string name="comment">Comment</string>
+    <string name="email">Email</string>
+    <string name="facebook">Facebook</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="name">Name</string>
+    <string name="refresh">Refresh</string>
+    <string name="show_comment_form">Show Comment  Form</string>
+    <string name="submit_comment">Submit Comment</string>
+    <string name="twisted">Twisted :)</string>
+    <string name="twitter_1">Twitter level 1</string>
+    <string name="twitter_2">Twitter level 2</string>
+    <string name="twitter_3">Twitter level 3</string>
+    <string name="twitter_4_1">Twitter level 4.1</string>
+    <string name="twitter_4_2">Twitter level 4.2</string>
+    <string name="twitter_4_3">Twitter level 4.3</string>
+    <string name="twitter_4_4">Twitter level 4.4</string>
+    <string name="twitter_4">Still more twitter</string>
+    <string name="twitter">Twitter</string>
 
 </resources>

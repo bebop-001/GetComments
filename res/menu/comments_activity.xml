@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	tools:context="com.example.getcomments"
+	>
+	
+	<item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never"/>
+    <!-- showAsAction=always means always show icons in
+         the action bar. -->
+    <item android:id="@+id/twitter"
+    	android:title="@string/twitter"
+    	android:icon="@drawable/twitter_icon"
+    	android:orderInCategory="2"
+    	android:showAsAction="always"
+    />
+    <item android:id="@+id/refresh"
+    	android:title="@string/refresh"
+    	android:orderInCategory="3"
+    	android:showAsAction="always"
+    />
+    
+
+</menu>
