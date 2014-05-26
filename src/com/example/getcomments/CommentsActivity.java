@@ -16,30 +16,6 @@ public class CommentsActivity extends FragmentActivity {
 		Log.i(tag, "onCreate");
 		setContentView(R.layout.comments_fragment);
 	}
-	public void CommentActivityButtons(View view) {
-		int buttonId = view.getId();
-		if (R.id.submit_comment == buttonId) {
-			EditText nameEt, commentEt, emailEt;
-			nameEt 			= (EditText)findViewById(R.id.name);
-			emailEt 		= (EditText)findViewById(R.id.email);
-			commentEt 		= (EditText)findViewById(R.id.comment);
-			String name 	= nameEt.getText().toString();
-			String comment 	= commentEt.getText().toString();
-			String email 	= emailEt.getText().toString();
-			nameEt.setText("");
-			emailEt.setText("");
-			commentEt.setText("");
-			Log.i(tag, "show_comment_form:"
-				+ "name = \"" 		+ name
-				+ "\", email = \"" 	+ email
-				+ "\", comment = \"" 	+ comment
-				+ "\""
-					);
-		}
-		else {
-			Log.i(tag, "UNKOWN BUTTON:" + buttonId);
-		}
-	}
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
         Log.i(tag, "onConfigurationChanged");
