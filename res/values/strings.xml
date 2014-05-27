@@ -8,7 +8,9 @@
     <string name="facebook">Facebook</string>
     <string name="hello_world">Hello world!</string>
     <string name="name">Name</string>
+    <string name="no_image">No Image</string>
     <string name="refresh">Refresh</string>
+    <string name="select_image">Select Action Image</string>
     <string name="show_comment_form">Show Comment  Form</string>
     <string name="submit_comment">Submit Comment</string>
     <string name="twisted">Twisted :)</string>
@@ -21,5 +23,7 @@
     <string name="twitter_4_4">Twitter level 4.4</string>
     <string name="twitter_4">Still more twitter</string>
     <string name="twitter">Twitter</string>
+    <string name="a_picture">a picture</string>
+    <string name="a_picture_2">another picture</string>
 
 </resources>

@@ -8,7 +8,18 @@
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:title="@string/action_settings"
-        app:showAsAction="never"/>
+        app:showAsAction="never">
+        <menu>
+	        <item android:id="@+id/image_1"
+	        	android:title="@string/select_image"
+	        	android:icon="@drawable/ic_launcher"
+	        	android:checkable="true" />
+	        <item android:id="@+id/image_2"
+	        	android:title="@string/select_image"
+	        	android:icon="@drawable/twisted"
+	        	android:checkable="true" />
+        </menu>
+    </item>
     <!-- showAsAction=always means always show icons in
          the action bar. -->
     <item android:id="@+id/facebook"

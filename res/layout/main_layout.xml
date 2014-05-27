@@ -5,12 +5,17 @@
 	android:orientation="vertical"
 	tools:context="${packageName}.${activityClass}" >
 
-    <Button
-    	android:id="@+id/show_comment_form"
-    	android:layout_width="match_parent"
-    	android:layout_height="wrap_content"
-    	android:text="@string/show_comment_form"
-    	android:onClick="mainActivityButtons"
-   	 />
+	<LinearLayout
+		android:id="@+id/main_layout_container"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content" >
+
+		<Button
+			android:id="@+id/show_comment_form"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:onClick="mainActivityButtons"
+			android:text="@string/show_comment_form" />
+	</LinearLayout>
 
 </LinearLayout>
