@@ -18,7 +18,10 @@
 	        	android:title="@string/select_image"
 	        	android:icon="@drawable/twisted"
 	        	android:checkable="true" />
-        </menu>
+	        <item android:id="@+id/comments_frag"
+	        	android:title="@string/show_comment_form"
+	        	android:checkable="true" />
+	        </menu>
     </item>
     <!-- showAsAction=always means always show icons in
          the action bar. -->

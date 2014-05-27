@@ -9,28 +9,21 @@ import android.view.MenuItem;
 public class BaseActivity extends FragmentActivity {
 	private static Menu menu;
     private static final String tag = "FragmentActivity";
-    // if user checked a checkbox, turn the other one off and
-    // return true.  if NoImage is selected, 
+    // allow user to select only one of N items.  Save selected
+    // item id for use in orientation change, restart, etc...
     static class SelectedImage {
     	private static int currentSelected = 0;
     	static void check(MenuItem item) {
-    		int id = item.getItemId();
-    		MenuItem item_1, item_2;
-    		item_1 = menu.findItem(R.id.image_1);
-    		item_2 = menu.findItem(R.id.image_2);
-    		if (item.isChecked()) {
-    			// if user turned off an image, just turn off all images
-    				item_1.setChecked(false);
-    				item_2.setChecked(false);
-    				currentSelected = 0;
-    		}
-			else {
-				// an image was selected.  Turn it on and the other
-				// image off.
+    		boolean isChecked = item.isChecked();
+    		int[] itemIds = {R.id.image_1, R.id.image_2, R.id.comments_frag};
+    		// unselect all
+			currentSelected = 0;
+    		for (int itemId : itemIds)
+				((MenuItem)menu.findItem(itemId)).setChecked(false);
+    		// if Item is to be selected, select it
+    		if (isChecked == false) {
 				item.setChecked(true);
-				if (id == R.id.image_1) item_2.setChecked(false);
-				else item_1.setChecked(false);
-				currentSelected = id;
+				currentSelected = item.getItemId();;
 			}
     	}
     	static void set(int selected) {
@@ -76,10 +69,11 @@ public class BaseActivity extends FragmentActivity {
             		i.setChecked(true);
             	}
             	break;
+            case R.id.comments_frag:
             case R.id.image_1:
             case R.id.image_2:
             	SelectedImage.check(item);
-            	Log.i(tag, "select image");
+            	Log.i(tag, "select image" + title);
             	break;
             default:
                 // Currently nested menu items aren't caught in switch above
