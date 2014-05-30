@@ -1,5 +1,6 @@
 package com.example.getcomments;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -36,6 +37,24 @@ public class CommentsFragment extends Fragment {
     	);
 		return commentView;
 	}
+  	CommentButtonListener commentCallback;
+	public interface CommentButtonListener {
+		public void commentButtonListener(
+				String name, String email, String comment);
+	}
+	public void onAttach(Activity activity) {
+		Log.i(tag, "onAttach version:" + activity.toString());
+		try {
+			commentCallback = (CommentButtonListener) activity;
+			Log.i(tag, "onAttach: got mainButtonCallback");
+		}
+		catch (ClassCastException e) {
+			throw new ClassCastException(activity.toString()
+				+ ":Must implement CommentButtonListener"
+			);
+		}
+		super.onAttach(activity);
+	}
 	public void CommentActivityButtons(View view, View commentView) {
 		int buttonId = view.getId();
 		if (R.id.submit_comment == buttonId) {
@@ -55,6 +74,7 @@ public class CommentsFragment extends Fragment {
 				+ "\", comment = \"" 	+ comment
 				+ "\""
 					);
+			commentCallback.commentButtonListener(name, email, comment);
 		}
 		else {
 			Log.i(tag, "UNKOWN BUTTON:" + buttonId);

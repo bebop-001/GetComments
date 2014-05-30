@@ -1,5 +1,7 @@
 package com.example.getcomments;
 
+import com.example.getcomments.CommentsFragment.CommentButtonListener;
+
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -7,7 +9,7 @@ import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements CommentButtonListener {
 	private static final String tag = "MainActivity";
 
 	@Override
@@ -22,6 +24,15 @@ public class MainActivity extends BaseActivity {
 			Log.i(tag, "show_comment_form");
 			startActivity(new Intent(this, CommentsActivity.class));
 		}
+	}
+	// callback from the comment fragment.
+	@Override
+	public void commentButtonListener(String name, String email, String comment) {
+		Log.i(tag, "commentButtonListener:"
+			+ "name:\"" + name + "\""
+			+ "email:\"" + email + "\""
+			+ "comment:\"" + comment + "\""
+		);
 	}
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {

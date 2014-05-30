@@ -1,12 +1,14 @@
 package com.example.getcomments;
 
+import com.example.getcomments.CommentsFragment.CommentButtonListener;
+
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.Menu;
 
-public class CommentsActivity extends BaseActivity {
+public class CommentsActivity extends BaseActivity implements CommentButtonListener {
 	private static final String tag = "CommentsActivity";
 
 	@Override
@@ -28,6 +30,15 @@ public class CommentsActivity extends BaseActivity {
 	public void onConfigurationChanged(Configuration newConfig) {
         Log.i(tag, "onConfigurationChanged");
 		super.onConfigurationChanged(newConfig);
+	}
+	// callback from the comment fragment.
+	@Override
+	public void commentButtonListener(String name, String email, String comment) {
+		Log.i(tag, "commentButtonListener:"
+			+ "name:\"" + name + "\""
+			+ "email:\"" + email + "\""
+			+ "comment:\"" + comment + "\""
+		);
 	}
 	@Override
 	protected void onDestroy() {
