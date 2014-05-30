@@ -37,20 +37,20 @@ public class CommentsFragment extends Fragment {
     	);
 		return commentView;
 	}
-  	CommentButtonListener commentCallback;
-	public interface CommentButtonListener {
-		public void commentButtonListener(
+  	CommentListener commentCallback;
+	public interface CommentListener {
+		public void commentListener(
 				String name, String email, String comment);
 	}
 	public void onAttach(Activity activity) {
 		Log.i(tag, "onAttach version:" + activity.toString());
 		try {
-			commentCallback = (CommentButtonListener) activity;
+			commentCallback = (CommentListener) activity;
 			Log.i(tag, "onAttach: got mainButtonCallback");
 		}
 		catch (ClassCastException e) {
 			throw new ClassCastException(activity.toString()
-				+ ":Must implement CommentButtonListener"
+				+ ":Must implement CommentListener"
 			);
 		}
 		super.onAttach(activity);
@@ -74,7 +74,12 @@ public class CommentsFragment extends Fragment {
 				+ "\", comment = \"" 	+ comment
 				+ "\""
 					);
-			commentCallback.commentButtonListener(name, email, comment);
+            // send registered listeners the result if the user
+            // presses the submit button.  Note that if you get
+            // here there must be registered listeners because of the
+            // onAttach method above.  Anyone who inflates this 
+            // fragment must register or we get an exception.
+			commentCallback.commentListener(name, email, comment);
 		}
 		else {
 			Log.i(tag, "UNKOWN BUTTON:" + buttonId);
