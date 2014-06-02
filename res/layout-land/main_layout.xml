@@ -1,31 +1,64 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:tools="http://schemas.android.com/tools"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	android:orientation="horizontal"
-	tools:context="${packageName}.${activityClass}" >
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context="${packageName}.${activityClass}" >
 
-	<LinearLayout
-		android:id="@+id/main_layout_land"
-		android:layout_width="0dp"
-		android:layout_height="match_parent"
-		android:layout_gravity="center_horizontal"
-		android:layout_weight="1"
-		android:gravity="center_horizontal" >
+    <LinearLayout
+        android:id="@+id/main_layout_land"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:gravity="center_horizontal" >
 
-		<Button
-			android:id="@+id/show_comment_form"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="@string/show_comment_form" />
-	</LinearLayout>
+        <LinearLayout
+            android:id="@+id/main_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
 
-	<fragment
-		android:id="@+id/fragment1"
-		android:name="com.example.getcomments.CommentsFragment"
-		android:layout_width="0dp"
-		android:layout_height="match_parent"
-		android:layout_weight="1"
-		tools:layout="@layout/comments_layout" />
+            <Button
+                android:id="@+id/show_comment_form"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/show_comment_form" />
+
+            <Button
+                android:id="@+id/next_fragment"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="show next fragment"
+                android:onClick="nextFrag" />
+
+            <FrameLayout
+                android:id="@+id/frag_placeholder"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:id="@+id/placeholder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Placeholder"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            </FrameLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <fragment
+        android:id="@+id/fragment1"
+        android:name="com.example.getcomments.CommentsFragment"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        tools:layout="@layout/comments_layout" />
 
 </LinearLayout>

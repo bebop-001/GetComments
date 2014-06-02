@@ -1,5 +1,7 @@
 package com.example.getcomments;
 
+import java.util.Arrays;
+
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -14,24 +16,26 @@ public class BaseActivity extends FragmentActivity {
     static class SelectedImage {
     	private static int currentSelected = 0;
     	static void check(MenuItem item) {
-    		boolean isChecked = item.isChecked();
-    		int[] itemIds = {R.id.image_1, R.id.image_2, R.id.comments_frag};
-    		// unselect all
-			currentSelected = 0;
+    		int newSelection = 0;
+    		boolean checkItem = (item.isChecked() == false);
+    		Integer[] itemIds = {R.id.image_1, R.id.image_2, R.id.comments_frag};
     		for (int itemId : itemIds)
 				((MenuItem)menu.findItem(itemId)).setChecked(false);
-    		// if Item is to be selected, select it
-    		if (isChecked == false) {
-				item.setChecked(true);
-				currentSelected = item.getItemId();;
+    		item.setChecked(checkItem);
+    		if (checkItem == true) {
+				newSelection = item.getItemId();
 			}
+    		if (newSelection != currentSelected) {
+    			currentSelected = newSelection;
+    			int newId = 0;
+    			// NOTE: for this to work, itemIds must be of type Integer.  
+    			// Otherwise auto-boxing fails.
+    			if (checkItem == true) 
+    				newId = (Arrays.asList(itemIds).indexOf(newSelection)) + 1;
+    			MainActivity.showFragment(newId);
+    		}
     	}
-    	static void set(int selected) {
-    		currentSelected = selected;
-    	}
-    	static int get () { return currentSelected; }
     }
-	
 	// Default menu.  Unless a class implements its own onCreateOptionsMenu
 	// method, it gets menu items defined in the menu/base_activity
 	@Override
@@ -85,5 +89,10 @@ public class BaseActivity extends FragmentActivity {
                 return super.onOptionsItemSelected(item);
 		}
         return true;
+	}
+	@Override
+	public void onOptionsMenuClosed(Menu menu) {
+		Log.i(tag, "onOptionsMenuClosed");
+		super.onOptionsMenuClosed(menu);
 	}
 }
